@@ -40,7 +40,7 @@ export default function Container(props) {
   const meta = {
     title: 'Satvik Shukla – Developer',
     description: `Back-end developer, TypeScript and Rust enthusiast, and good spirit`,
-    image: 'https://doad.vercel.app/static/images/banner.png',
+    image: 'https://doad.vercel.app/static/images/banner.jpeg',
     type: 'website',
     ...customMeta
   };
