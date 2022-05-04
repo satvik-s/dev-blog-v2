@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function CurrentTrack(data) {
   return (
-    <div className="flex flex-row max-w-3xl w-full items-center">
-      <div className="w-[100px] sm:w-[120px] relative">
+    <div className="flex flex-row max-w-2xl w-full mx-auto items-center overflow-auto">
+      <div className="flex w-[100px] sm:w-[120px] min-w-fit">
         <Image
           alt="Album Art"
           height={120}
