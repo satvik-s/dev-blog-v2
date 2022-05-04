@@ -15,7 +15,7 @@ export default function Tracks() {
 
   return (
     <>
-      <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+      <h2 className="font-bold text-3xl tracking-tight mb-6 mt-12 text-black dark:text-white">
         Currently Playing
       </h2>
       <CurrentTrack {...data} />
