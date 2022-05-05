@@ -41,4 +41,4 @@ jobs:
         run: echo "::set-output name=bundle-size::$(grep -o -E '\d+M' <<< '${{ steps.set-bundle-size-line.outputs.bundle-size }}')"
 
       - name: Echo bundle size
-        run: echo ${{ steps.get-bundle-size.outputs.bundle-size }}
+        run: echo "size is ${{ steps.get-bundle-size.outputs.bundle-size }}"
