@@ -26,6 +26,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: List files
+        run: ls -la
+
       - name: Get build size
         id: get-bundle-size
         run: echo "::set-output name=bundle-size::$(du -sh .next | grep -o -E '\d+M')"
