@@ -29,16 +29,9 @@ jobs:
       - name: List files
         run: ls -la
 
-      - name: Echo build size
-        run: du -sh .next
-
-      - name: Set build size line
-        id: set-bundle-size-line
-        run: echo "::set-output name=bundle-size::$(du -sh .next)"
-
-      - name: Get build size
-        id: get-bundle-size
-        run: echo "::set-output name=bundle-size::$(grep -o -E '\d+M' <<< '${{ steps.set-bundle-size-line.outputs.bundle-size }}')"
+      - run: echo ::set-output name=bundle-size::$(du -sh .next | grep -o -E '\d+M')
+        id: set-bundle-size
+        shell: bash
 
       - name: Echo bundle size
-        run: echo "size is ${{ steps.get-bundle-size.outputs.bundle-size }}"
+        run: echo "size is ${{ steps.set-bundle-size.outputs.bundle-size }}"
