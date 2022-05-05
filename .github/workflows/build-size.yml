@@ -21,10 +21,14 @@ jobs:
         run: echo Hello, world!
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build project
         run: npm run build
 
       - name: Get build size
-        run: du -sh .next | grep -o -E '\d+M'
+        id: get-bundle-size
+        run: echo "::set-output name=bundle-size::$(du -sh .next | grep -o -E '\d+M')"
+
+      - name: Echo bundle size
+        run: echo ${{ steps.get-bundle-size.outputs.bundle-size }}
