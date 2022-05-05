@@ -31,9 +31,7 @@ jobs:
 
       - name: Set bundle size
         run: |
-          STR=$(du -sh .next)
-          echo "$STR"
-          SIZE=$($STR | grep -o -E "\d+M")
+          SIZE=$(du -sh .next | grep -o -E "\d+M")
           echo "$SIZE"
           echo "::set-output name=size::$SIZE"
         id: bundle-size
