@@ -27,20 +27,20 @@ jobs:
       - name: List files
         run: ls -la
 
-      - name: Set bundle size
+      - name: Set build size
         run: |
           SIZE=$(du -sh .next | grep -o -E "[0-9]+M")
           echo "$SIZE"
           echo "::set-output name=size::$SIZE"
-        id: bundle-size
+        id: build-size
         shell: bash
 
-      - name: Echo bundle size
-        run: echo "size is ${{ steps.bundle-size.outputs.size }}"
+      - name: Echo build size
+        run: echo "size is ${{ steps.build-size.outputs.size }}"
         
       - name: Make comment
         uses: thollander/actions-comment-pull-request@v1.3.0
         with:
-          message: 'Generated bundle size is: ${{ steps.bundle-size.outputs.size }}'
-          comment_includes: 'bundle'
+          message: 'Generated build size is: ${{ steps.build-size.outputs.size }}'
+          comment_includes: 'Generated'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
