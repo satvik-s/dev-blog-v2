@@ -37,12 +37,8 @@ jobs:
         run: echo "size is ${{ steps.bundle-size.outputs.size }}"
         
       - name: Make comment
-        uses: actions/github-script@v6
+        uses: thollander/actions-comment-pull-request@v1
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '${{ steps.bundle-size.outputs.size }}'
-            })
+          message: '${{ Generated bundle size is: steps.bundle-size.outputs.size }}'
+          comment_includes: 'bundle'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
