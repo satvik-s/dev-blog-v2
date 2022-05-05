@@ -1,0 +1,46 @@
+name: BuildSize
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: List files
+        run: ls -la
+
+      - name: Set build size
+        run: |
+          SIZE=$(du -sh .next | grep -o -E "[0-9]+M")
+          echo "$SIZE"
+          echo "::set-output name=size::$SIZE"
+        id: build-size
+        shell: bash
+
+      - name: Echo build size
+        run: echo "size is ${{ steps.build-size.outputs.size }}"
+        
+      - name: Make comment
+        uses: thollander/actions-comment-pull-request@v1.3.0
+        with:
+          message: 'Generated build size is: ${{ steps.build-size.outputs.size }}'
+          comment_includes: 'Generated'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
