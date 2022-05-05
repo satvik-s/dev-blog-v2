@@ -29,6 +29,9 @@ jobs:
       - name: List files
         run: ls -la
 
+      - name: Echo build size
+        run: du -sh .next | grep -o -E '\d+M'
+
       - name: Get build size
         id: get-bundle-size
         run: echo "::set-output name=bundle-size::$(du -sh .next | grep -o -E '\d+M')"
