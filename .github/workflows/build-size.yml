@@ -30,7 +30,7 @@ jobs:
         run: ls -la
 
       - name: Echo build size
-        run: du -sh .next | grep -o -E '\d+M'
+        run: du -sh .next
 
       - name: Get build size
         id: get-bundle-size
