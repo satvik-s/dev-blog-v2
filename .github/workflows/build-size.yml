@@ -29,9 +29,10 @@ jobs:
       - name: List files
         run: ls -la
 
-      - run: echo ::set-output name=bundle-size::$(du -sh .next | grep -o -E '\d+M')
+      - name: Set bundle size
+        run: echo ::set-output name=size::$(du -sh .next | grep -E '\d+M')
         id: set-bundle-size
         shell: bash
 
       - name: Echo bundle size
-        run: echo "size is ${{ steps.set-bundle-size.outputs.bundle-size }}"
+        run: echo "size is ${{ steps.set-bundle-size.outputs.size }}"
