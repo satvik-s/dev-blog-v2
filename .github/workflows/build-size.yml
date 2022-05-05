@@ -37,7 +37,7 @@ jobs:
         run: echo "::set-output name=bundle-size::$(du -sh .next)"
 
       - name: Grep bundle size
-        run: grep -o -E '\d+M' <<< ${{ steps.set-bundle-size-line.outputs.bundle-size }}
+        run: grep -o -E '\d+M' <<< '${{ steps.set-bundle-size-line.outputs.bundle-size }}'
 
       - name: Get build size
         id: get-bundle-size
