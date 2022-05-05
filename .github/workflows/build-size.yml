@@ -33,7 +33,7 @@ jobs:
         run: |
           STR=$(du -sh .next)
           echo "$STR"
-          SIZE=$(grep -o -E '\d+M' <<< $STR)
+          SIZE=$(grep -o -E '\d+M' <<< "$STR")
           echo "$SIZE"
           echo "::set-output name=size::$SIZE"
         id: bundle-size
