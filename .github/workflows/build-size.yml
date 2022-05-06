@@ -2,7 +2,8 @@ name: BuildSize
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -33,7 +34,7 @@ jobs:
           echo "::set-output name=size::$SIZE"
         id: build-size
         shell: bash
-        with:
+        env:
           folder: '.next'
 
       - name: Echo build size
