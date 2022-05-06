@@ -2,7 +2,8 @@ name: BuildSize
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
   build:
@@ -29,11 +30,12 @@ jobs:
 
       - name: Set build size
         run: |
-          SIZE=$(du -sh .next | grep -o -E "[0-9]+M")
-          echo "$SIZE"
+          SIZE=$(du -sh $folder | grep -o -E "[0-9]+M")
           echo "::set-output name=size::$SIZE"
         id: build-size
         shell: bash
+        with:
+          folder: '.next'
 
       - name: Echo build size
         run: echo "size is ${{ steps.build-size.outputs.size }}"
