@@ -43,6 +43,6 @@ jobs:
       - name: Make comment
         uses: thollander/actions-comment-pull-request@v1.3.0
         with:
-          message: 'Generated build size is: ${{ steps.build-size.outputs.size }}'
-          comment_includes: 'Generated'
+          message: 'Build size is: ${{ steps.build-size.outputs.size }}'
+          comment_includes: 'size'
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
