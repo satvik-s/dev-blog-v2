@@ -1,0 +1,77 @@
+---
+title: 'GitHub Action'
+description: 'Add build size to your PR using GitHub Actions'
+logo: 'github.png'
+---
+
+```yml
+# .github/workflows/build-size.yml
+
+name: BuildSize
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+        # Start of custom build steps for the project
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+        # End of custom build steps for the project
+
+      - name: List files
+        run: ls -la
+
+      - name: Set build size
+        run: |
+          SIZE=$(du -sh $folder | grep -o -E "[0-9]+M")
+          echo "::set-output name=size::$SIZE"
+        id: build-size
+        shell: bash
+        # Set the name of the folder whose size should be commented
+        env:
+          folder: '.next'
+
+      - name: Echo build size
+        run: echo "size is ${{ steps.build-size.outputs.size }}"
+
+      - name: Make comment
+        uses: thollander/actions-comment-pull-request@v1.3.0
+        with:
+          message: 'Build size is: ${{ steps.build-size.outputs.size }}'
+          comment_includes: 'size'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+## Usage
+
+<Step number={1} title="Build the project" />
+
+Update the steps in the above action to build the project. The above
+example builds an `npm` project but it would be needed to swap the steps
+to build non-`npm` projects
+
+<Step number={2} title="Update folder name" />
+
+Update the name of the folder/file whose size should be included in the PR.
+Requires updating the `folder` in the `name: Set build size` step
+
+And that should be it. You should now see the the PR commenting
+the size of the folder/file you wanted to be included.
