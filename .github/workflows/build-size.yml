@@ -35,7 +35,7 @@ jobs:
         id: build-size
         shell: bash
         env:
-          folder: 'public'
+          folder: '.next'
 
       - name: Echo build size
         run: echo "size is ${{ steps.build-size.outputs.size }}"
