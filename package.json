@@ -27,7 +27,7 @@
     "use-delayed-render": "0.0.7"
   },
   "devDependencies": {
-    "@types/react": "17.0.45",
+    "@types/react": "18.0.9",
     "autoprefixer": "10.4.7",
     "eslint": "8.15.0",
     "eslint-config-next": "12.1.6",
