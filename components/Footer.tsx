@@ -30,17 +30,19 @@ export default function Footer() {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://github.com/satvik-s">GitHub</ExternalLink>
           <Link href="/snippets">
             <a className="text-gray-500 hover:text-gray-600 transition">
               Snippets
             </a>
           </Link>
+          <Link href="/resume">
+            <a className="text-gray-500 hover:text-gray-600 transition">
+              Resume
+            </a>
+          </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/satvik_sh">
-            Twitter
-          </ExternalLink>
+          <ExternalLink href="https://github.com/satvik-s">GitHub</ExternalLink>
           <ExternalLink href="https://www.youtube.com/channel/UC7C8Kc8fU4s0UpWQqlJ4ocA">
             YouTube
           </ExternalLink>
