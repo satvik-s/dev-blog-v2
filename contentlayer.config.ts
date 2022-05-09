@@ -84,7 +84,7 @@ const OtherPage = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: 'data',
-  documentTypes: [Blog, Newsletter, Snippet, OtherPage],
+  documentTypes: [Blog, Snippet],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
