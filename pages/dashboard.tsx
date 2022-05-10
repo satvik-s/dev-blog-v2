@@ -1,8 +1,9 @@
 import Container from 'components/Container';
 import CurrentPlayingDetailed from 'components/CurrentPlayingDetailed';
 import TopTracks from 'components/TopTracks';
+import { getTopTracks } from 'lib/spotify';
 
-export default function Dashboard() {
+export default function Dashboard({ data }) {
   return (
     <Container
       title="Dashboard – Satvik Shukla"
@@ -26,8 +27,26 @@ export default function Dashboard() {
           Curious what I'm currently listening to? Here's my top tracks on
           Spotify from the past month
         </p>
-        <TopTracks />
+        <TopTracks _data={data} />
       </div>
     </Container>
   );
+}
+
+export async function getStaticProps() {
+  const response = await getTopTracks();
+
+  const items = await response.json();
+
+  const tracks = items.map((item) => ({
+    artist: item.artists,
+    songUrl: item.track_url,
+    title: item.track_name,
+  }));
+
+  return {
+    props: {
+      tracks,
+    },
+  };
 }
