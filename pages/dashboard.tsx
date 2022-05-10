@@ -26,7 +26,7 @@ export default function Dashboard() {
           Curious what I'm currently listening to? Here's my top tracks on
           Spotify from the past month
         </p>
-        <TopTracks />
+        <TopTracks _data={undefined} />
       </div>
     </Container>
   );
