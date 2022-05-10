@@ -5,7 +5,7 @@ import { TopTracks } from 'lib/types';
 import Track from 'components/Track';
 import { getTopTracks } from 'lib/spotify';
 
-export default function Tracks({ _data }) {
+export default function Tracks({ _data = undefined }) {
   const { data } = useSWR<TopTracks>('/api/top-tracks', fetcher);
 
   if (!data && !_data) {
@@ -33,7 +33,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data: { tracks },
+      tracks,
     },
   };
 }
