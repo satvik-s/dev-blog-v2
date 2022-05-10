@@ -1,8 +1,12 @@
 import Container from 'components/Container';
 import CurrentPlayingDetailed from 'components/CurrentPlayingDetailed';
 import TopTracks from 'components/TopTracks';
+import fetcher from 'lib/fetcher';
+import { TopTracks as TopTracksType } from 'lib/types';
+import useSWR from 'swr';
 
 export default function Dashboard() {
+  const { data } = useSWR<TopTracksType>('/api/top-tracks', fetcher);
   return (
     <Container
       title="Dashboard – Satvik Shukla"
@@ -26,7 +30,7 @@ export default function Dashboard() {
           Curious what I'm currently listening to? Here's my top tracks on
           Spotify from the past month
         </p>
-        <TopTracks />
+        <TopTracks data={data} />
       </div>
     </Container>
   );
