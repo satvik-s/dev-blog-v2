@@ -7,7 +7,7 @@ import Track from 'components/Track';
 export default function Tracks({ _data }) {
   const { data } = useSWR<TopTracks>('/api/top-tracks', fetcher);
 
-  if (!data || !_data) {
+  if (!data && !_data) {
     return null;
   }
 

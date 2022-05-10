@@ -46,7 +46,9 @@ export async function getStaticProps() {
 
   return {
     props: {
-      tracks,
+      data: {
+        tracks,
+      },
     },
   };
 }
