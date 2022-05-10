@@ -1,7 +1,12 @@
-import Track from 'components/Track';
-import { getTopTracks } from 'lib/spotify';
+import useSWR from 'swr';
 
-export default function Tracks({ data }) {
+import fetcher from 'lib/fetcher';
+import { TopTracks } from 'lib/types';
+import Track from 'components/Track';
+
+export default function Tracks() {
+  const { data } = useSWR<TopTracks>('/api/top-tracks', fetcher);
+
   if (!data) {
     return null;
   }
@@ -13,21 +18,4 @@ export default function Tracks({ data }) {
       ))}
     </>
   );
-}
-
-export async function getStaticProps() {
-  const res = await getTopTracks();
-  const items = await res.json();
-
-  const tracks = items.map((item) => ({
-    artist: item.artists,
-    songUrl: item.track_url,
-    title: item.track_name,
-  }));
-
-  return {
-    props: {
-      tracks,
-    },
-  };
 }
