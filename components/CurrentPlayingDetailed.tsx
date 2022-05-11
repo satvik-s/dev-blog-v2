@@ -1,13 +1,19 @@
 import fetcher from 'lib/fetcher';
-import { NowPlayingSongDetailed } from 'lib/types';
+import { NowPlayingSong, NowPlayingSongDetailed } from 'lib/types';
 import useSWR from 'swr';
 import CurrentTrack from './CurrentTrack';
 
 export default function Tracks() {
-  const { data } = useSWR<NowPlayingSongDetailed>(
+  const { data: lessDetailedData } = useSWR<NowPlayingSong>(
+    '/api/now-playing',
+    fetcher,
+  );
+  const { data: detailedData } = useSWR<NowPlayingSongDetailed>(
     '/api/now-playing-detailed',
     fetcher,
   );
+
+  const data = detailedData ?? lessDetailedData;
 
   if (!data || data.isPlaying === false) {
     return null;
