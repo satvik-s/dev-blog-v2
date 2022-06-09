@@ -46,7 +46,7 @@
     "remark-gfm": "3.0.1",
     "rss": "1.2.2",
     "typescript": "4.7.3",
-    "yarn": "1.22.18"
+    "yarn": "1.22.19"
   },
   "prettier": {
     "arrowParens": "always",
