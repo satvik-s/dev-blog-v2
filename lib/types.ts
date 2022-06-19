@@ -5,6 +5,24 @@ export enum Form {
   Error,
 }
 
+export type BookInfo = {
+  id: string;
+  link: string;
+  title: string;
+  authors?: string[];
+  publishedDate?: string;
+  pageCount?: number;
+  imageLinks?: {};
+  categories?: string[];
+  lastUpdatedAt?: string;
+  description?: string;
+};
+
+export type BookshelfInfo = {
+  readingNow: BookInfo[];
+  haveRead: BookInfo[];
+};
+
 export type FormState = {
   state: Form;
   message?: string;
