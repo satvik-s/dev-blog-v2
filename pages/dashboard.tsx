@@ -1,7 +1,9 @@
 import Container from 'components/Container';
 import CurrentPlayingDetailed from 'components/CurrentPlayingDetailed';
 import TopTracks from 'components/TopTracks';
+import BookshelfInfo from 'components/Bookshelf';
 import { getTopTracks } from 'lib/spotify';
+import { getBookshelfInfo } from 'lib/bookshelf';
 
 export default function Dashboard({ data }) {
   return (
@@ -21,6 +23,14 @@ export default function Dashboard({ data }) {
         </div>
         <CurrentPlayingDetailed />
         <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
+          Off the shelf
+        </h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-4">
+          Curious what pages I have been flipping over recently? Here is some
+          info about my recent reads
+        </p>
+        <BookshelfInfo _data={data} />
+        <h2 className="font-bold text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white">
           Top Tracks
         </h2>
         <p className="text-gray-600 dark:text-gray-400 mb-4">
@@ -34,9 +44,9 @@ export default function Dashboard({ data }) {
 }
 
 export async function getStaticProps() {
-  const response = await getTopTracks();
+  const trackResp = await getTopTracks();
 
-  const items = await response.json();
+  const items = await trackResp.json();
 
   const tracks = items.map((item) => ({
     artist: item.artists,
@@ -44,10 +54,16 @@ export async function getStaticProps() {
     title: item.track_name,
   }));
 
+  const bookshelfResp = await getBookshelfInfo();
+
+  const bookshelfInfo = await bookshelfResp.json();
+
   return {
     props: {
       data: {
         tracks,
+        readingNow: bookshelfInfo.readingNow,
+        haveRead: bookshelfInfo.haveRead,
       },
     },
   };
