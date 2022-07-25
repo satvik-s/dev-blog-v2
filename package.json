@@ -14,7 +14,7 @@
     "@tailwindcss/typography": "0.5.4",
     "classnames": "2.3.1",
     "contentlayer": "0.2.4",
-    "date-fns": "2.28.0",
+    "date-fns": "2.29.1",
     "motion": "10.13.1",
     "next": "12.1.6",
     "next-contentlayer": "0.2.4",
