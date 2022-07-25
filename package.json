@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "prettier": "$(npm bin)/prettier --write .",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "check-updates": "$(npm bin)/ncu",
+    "make-updates": "$(npm bin)/ncu -u"
   },
   "dependencies": {
     "@tailwindcss/typography": "0.5.4",
