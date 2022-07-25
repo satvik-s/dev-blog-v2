@@ -25,7 +25,7 @@ module.exports = withContentlayer({
 
     return config;
   },
-  headers: () => {
+  headers: async () => {
     return [
       {
         source: '/(.*)',
