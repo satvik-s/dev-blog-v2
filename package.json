@@ -19,7 +19,7 @@
     "date-fns": "2.29.2",
     "motion": "10.14.2",
     "next": "12.1.6",
-    "next-contentlayer": "0.2.4",
+    "next-contentlayer": "0.2.8",
     "next-themes": "0.2.0",
     "preact": "10.10.6",
     "react": "18.2.0",
