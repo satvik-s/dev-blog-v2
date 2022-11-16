@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "@types/react": "18.0.23",
-    "autoprefixer": "10.4.12",
+    "autoprefixer": "10.4.13",
     "eslint": "8.24.0",
     "eslint-config-next": "12.2.2",
     "globby": "13.1.2",
