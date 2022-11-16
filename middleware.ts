@@ -10,7 +10,7 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
-    font-src 'self';
+    font-src 'self' *.fonts.gstatic.com;
   `;
 
   const response = NextResponse.next();
