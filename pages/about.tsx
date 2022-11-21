@@ -20,7 +20,7 @@ export default function About() {
             <li>
               Website:{' '}
               <Link href="https://doad.vercel.app">
-                <a>https://doad.vercel.app</a>
+                https://doad.vercel.app
               </Link>
             </li>
             <li>
