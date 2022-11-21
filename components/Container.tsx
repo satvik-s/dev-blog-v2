@@ -45,6 +45,8 @@ export default function Container(props) {
     ...customMeta,
   };
 
+  console.log(mounted, resolvedTheme);
+
   return (
     <div className="bg-gray-50 dark:bg-gray-900">
       <Head>
