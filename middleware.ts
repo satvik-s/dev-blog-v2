@@ -6,11 +6,11 @@ export function middleware(req: NextRequest, ev: NextFetchEvent) {
     default-src 'self';
     script-src 'self' 'unsafe-eval' 'unsafe-inline' vitals.vercel-insights.com;
     child-src *.youtube.com *.google.com *.twitter.com;
-    style-src 'self' 'unsafe-inline';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     img-src * blob: data:;
     media-src 'none';
     connect-src *;
-    font-src 'self';
+    font-src 'self' fonts.gstatic.com;
   `;
 
   const response = NextResponse.next();
