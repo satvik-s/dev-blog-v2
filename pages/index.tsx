@@ -37,12 +37,12 @@ export default function Home({}) {
         <div className="flex gap-6 flex-col md:flex-row">
           <IndexPostCard
             title="The Power of a Rules Engine"
-            gradient="from-[#004ff9] to-[#fff94c]"
+            gradient="from-[#feac5e] via-[#c779d0] to-[#4bc0c8]"
             link="https://youtu.be/2DQRYugvDYo"
           />
           <IndexPostCard
             title="What's the right opportunity out of college?"
-            gradient="from-[#feac5e] via-[#c779d0] to-[#4bc0c8]"
+            gradient="from-[#004ff9] to-[#fff94c]"
             link="/blog/college-grad-decision"
           />
           <IndexPostCard
