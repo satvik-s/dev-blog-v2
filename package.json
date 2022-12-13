@@ -7,17 +7,17 @@
     "dev": "next dev",
     "start": "next start",
     "lint": "next lint",
-    "prettier": "$(npm bin)/prettier --write .",
+    "prettier": "prettier --write .",
     "prepare": "husky install",
-    "check-updates": "$(npm bin)/ncu",
-    "make-updates": "$(npm bin)/ncu -u"
+    "check-updates": "ncu",
+    "make-updates": "ncu -u"
   },
   "dependencies": {
     "@tailwindcss/typography": "0.5.8",
     "classnames": "2.3.2",
     "contentlayer": "0.2.9",
     "date-fns": "2.29.3",
-    "motion": "10.14.3",
+    "motion": "10.15.3",
     "next": "13.0.6",
     "next-contentlayer": "0.2.9",
     "next-themes": "0.2.1",
