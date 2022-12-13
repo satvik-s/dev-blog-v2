@@ -36,14 +36,14 @@ export default function Home({}) {
         </h3>
         <div className="flex gap-6 flex-col md:flex-row">
           <IndexPostCard
-            title="What's the right opportunity out of college?"
-            gradient="from-[#feac5e] via-[#c779d0] to-[#4bc0c8]"
-            link="/blog/college-grad-decision"
-          />
-          <IndexPostCard
             title="The Power of a Rules Engine"
             gradient="from-[#004ff9] to-[#fff94c]"
             link="https://youtu.be/2DQRYugvDYo"
+          />
+          <IndexPostCard
+            title="What's the right opportunity out of college?"
+            gradient="from-[#feac5e] via-[#c779d0] to-[#4bc0c8]"
+            link="/blog/college-grad-decision"
           />
           <IndexPostCard
             title="API development and testing at HBO Max"
