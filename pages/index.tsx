@@ -41,9 +41,9 @@ export default function Home({}) {
             link="/blog/college-grad-decision"
           />
           <IndexPostCard
-            title="Infrastucture as Code using AWS CDK"
+            title="The Power of a Rules Engine"
             gradient="from-[#004ff9] to-[#fff94c]"
-            link="/blog/aws-cdk-fun"
+            link="https://youtu.be/2DQRYugvDYo"
           />
           <IndexPostCard
             title="API development and testing at HBO Max"
