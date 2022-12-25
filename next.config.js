@@ -1,15 +1,20 @@
-import { withContentlayer } from 'next-contentlayer';
+const ncl = require('next-contentlayer');
 
 /**
  * @type {import('next').NextConfig}
  */
-module.exports = withContentlayer({
+module.exports = ncl.withContentlayer({
   swcMinify: true,
   reactStrictMode: true,
+  optimizeFonts: true,
   images: {
-    domains: [
-      'i.scdn.co', // Spotify Album Art
-      'pbs.twimg.com', // Twitter Profile Picture
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'i.scdn.co',
+        port: '',
+        pathname: '/image/**',
+      },
     ],
   },
   webpack: (config, { dev, isServer }) => {
