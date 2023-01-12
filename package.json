@@ -13,7 +13,7 @@
     "make-updates": "ncu -u"
   },
   "dependencies": {
-    "@tailwindcss/typography": "0.5.8",
+    "@tailwindcss/typography": "0.5.9",
     "classnames": "2.3.2",
     "contentlayer": "0.2.9",
     "date-fns": "2.29.3",
