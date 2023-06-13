@@ -36,7 +36,7 @@
     "eslint-config-next": "13.4.5",
     "globby": "13.1.4",
     "husky": "8.0.3",
-    "lint-staged": "13.1.0",
+    "lint-staged": "13.2.2",
     "npm-check-updates": "16.6.5",
     "postcss": "8.4.20",
     "prettier": "2.8.8",
