@@ -18,7 +18,7 @@
     "contentlayer": "0.2.9",
     "date-fns": "2.30.0",
     "motion": "10.15.5",
-    "next": "13.4.5",
+    "next": "13.5.0",
     "next-contentlayer": "0.2.9",
     "next-themes": "0.2.1",
     "preact": "10.15.1",
